@@ -21,9 +21,9 @@ namespace Superhero_Creator.Controllers
         }
 
         // GET: Superhero/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
-            return View();
+            return View(context.Superheroes.ToList());
         }
 
         // GET: Superhero/Create
@@ -54,17 +54,27 @@ namespace Superhero_Creator.Controllers
         // GET: Superhero/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Superhero updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(updatedSuperhero);
         }
 
         // POST: Superhero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Superhero superhero)
         {
             try
             {
                 // TODO: Add update logic here
-
+                using (ApplicationDbContext context = new ApplicationDbContext())
+                {
+                    Superhero updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                    updatedSuperhero.name = superhero.name;
+                    updatedSuperhero.alterEgo = superhero.alterEgo;
+                    updatedSuperhero.primaryAbility = superhero.primaryAbility;
+                    updatedSuperhero.secondaryAbility = superhero.secondaryAbility;
+                    updatedSuperhero.catchphrase = superhero.catchphrase;
+                    context.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -76,17 +86,27 @@ namespace Superhero_Creator.Controllers
         // GET: Superhero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Superhero delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(delete);
         }
 
         // POST: Superhero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Superhero superhero)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                if(superhero == null)
+                {
+                    throw new NotImplementedException();
+                }
+                else
+                {
+                    Superhero delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                    context.Superheroes.Remove(delete); ;
+                    context.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
