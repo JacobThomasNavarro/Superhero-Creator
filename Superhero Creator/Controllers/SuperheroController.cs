@@ -17,19 +17,20 @@ namespace Superhero_Creator.Controllers
         // GET: Superhero
         public ActionResult Index()
         {
-            return View();
+            return View(context.Superheroes.ToList());
         }
 
         // GET: Superhero/Details/5
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            return View(context.Superheroes.ToList());
+            var detailedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(detailedSuperhero);
         }
 
         // GET: Superhero/Create
         public ActionResult Create()
         {
-            Superhero superhero = new Superhero();
+            var superhero = new Superhero();
             return View(superhero);
         }
 
@@ -54,7 +55,7 @@ namespace Superhero_Creator.Controllers
         // GET: Superhero/Edit/5
         public ActionResult Edit(int id)
         {
-            Superhero updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            var updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
             return View(updatedSuperhero);
         }
 
@@ -64,17 +65,14 @@ namespace Superhero_Creator.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-                using (ApplicationDbContext context = new ApplicationDbContext())
-                {
-                    Superhero updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                    var updatedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
                     updatedSuperhero.name = superhero.name;
                     updatedSuperhero.alterEgo = superhero.alterEgo;
                     updatedSuperhero.primaryAbility = superhero.primaryAbility;
                     updatedSuperhero.secondaryAbility = superhero.secondaryAbility;
                     updatedSuperhero.catchphrase = superhero.catchphrase;
                     context.SaveChanges();
-                }
+
                 return RedirectToAction("Index");
             }
             catch
@@ -86,7 +84,7 @@ namespace Superhero_Creator.Controllers
         // GET: Superhero/Delete/5
         public ActionResult Delete(int id)
         {
-            Superhero delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            var delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
             return View(delete);
         }
 
@@ -103,7 +101,7 @@ namespace Superhero_Creator.Controllers
                 }
                 else
                 {
-                    Superhero delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                    var delete = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
                     context.Superheroes.Remove(delete); ;
                     context.SaveChanges();
                 }

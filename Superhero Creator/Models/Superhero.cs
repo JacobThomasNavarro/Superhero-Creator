@@ -15,6 +15,6 @@ namespace Superhero_Creator.Models
         public string primaryAbility { get; set; }
         public string secondaryAbility { get; set;  }
         public string catchphrase { get; set; }
-
+        public string image { get; set; }
     }
 }

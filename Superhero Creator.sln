@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superhero Creator", "Superhero Creator\Superhero Creator.csproj", "{9786B1DF-C677-4B79-B456-87978E97B8AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A32E1ADB-D9C3-4520-AFC2-C0867855BA9B}"
+	ProjectSection(SolutionItems) = preProject
+		images\niccage.jpg = images\niccage.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -23,7 +23,7 @@ namespace Superhero_Creator
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/sketchy.bootstrap.css",
                       "~/Content/site.css"));
         }
     }

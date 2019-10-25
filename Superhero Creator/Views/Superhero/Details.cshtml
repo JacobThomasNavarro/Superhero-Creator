@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Superhero_Creator.Models.Superhero>
+﻿@model Superhero_Creator.Models.Superhero
 
 @{
     ViewBag.Title = "Details";
@@ -6,51 +6,61 @@
 
 <h2>Details</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
+<div>
+    <h4>Superhero</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
             @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.alterEgo)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alterEgo)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.primaryAbility)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primaryAbility)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.secondaryAbility)
-        </th>
-        <th>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondaryAbility)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.catchphrase)
-        </th>
-        <th></th>
-    </tr>
+        </dt>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.alterEgo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.primaryAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.secondaryAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.catchphrase)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        <dd>
+            @Html.DisplayFor(model => model.catchphrase)
+        </dd>
 
-</table>
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

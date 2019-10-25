@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Superheroes">
+      <EntityTypeMapping TypeName="Model.Superhero">
+        <MappingFragment StoreEntitySet="Superheroes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="alterEgo" ColumnName="alterEgo" />
+          <ScalarProperty Name="primaryAbility" ColumnName="primaryAbility" />
+          <ScalarProperty Name="secondaryAbility" ColumnName="secondaryAbility" />
+          <ScalarProperty Name="catchphrase" ColumnName="catchphrase" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
